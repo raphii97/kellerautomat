@@ -8,14 +8,14 @@ public class KellerAutomat {
     }
 
     private void push(int value) {
-        stack.add(value + "");
+        stack.add(Integer.toString(value));
     }
 
     private int pop() {
         int lastElement = stack.size() - 1;
         int value = 0;
 
-        if (stack.get(lastElement) == "$") System.out.println("Error");
+        if (stack.get(lastElement) == "$") System.out.println("Error: Stack is empty");
         else value = Integer.parseInt(stack.get(lastElement));
 
         stack.remove(lastElement);
@@ -23,19 +23,19 @@ public class KellerAutomat {
         return value;
     }
 
-    public void berechnungsSchritt(Character read, boolean modus) {
-        if (read == '*') {
+    public void berechnungsSchritt(Character symbol, boolean modus) {
+        if (symbol == '*') {
             int a = pop();
             int b = pop();
             push(a * b);
-        } else if (read == '+') {
+        } else if (symbol == '+') {
             int a = pop();
             int b = pop();
             push(a + b);
-        } else if (read >= '0' && read <= '9') {
-            push(Integer.parseInt(read.toString()));
+        } else if (symbol >= '0' && symbol <= '9') {
+            push(Integer.parseInt(symbol.toString()));
         }
-        else System.out.println("Error");
+        else System.out.println("Error: Symbol is not valid");
 
         if (modus) {
             System.out.println("Stack: " + stack);

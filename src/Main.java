@@ -5,13 +5,12 @@ public class Main {
     private static KellerAutomat kellerAutomat = new KellerAutomat();
 
     private static void gibWort() {
-        System.out.println("Geben Sie ein Ausdruck in umgekehrter polnische Notation: ");
+        System.out.println("Geben Sie ein Ausdruck in umgekehrten polnischen Notation: ");
         Scanner scanner = new Scanner(System.in);
         wort = scanner.nextLine();
     }
 
     private static boolean wortValidieren() {
-        //0-9 + * Space
         wort = wort.replaceAll("\\s", "");
         return wort.matches("[0-9+*]+");
     }
