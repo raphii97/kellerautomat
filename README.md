@@ -7,7 +7,9 @@ Für die Eingabe wird die [umgekehrte Polnische Notation](https://de.wikipedia.o
 ## Verwendung
 
 ```bash
-javac Main.java
-
+cd src
+javac *.java
 java Main
+
+#folge Eingabe Anweisung
 ```
